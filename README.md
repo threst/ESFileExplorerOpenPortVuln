@@ -1,41 +1,45 @@
 # ES File Explorer Open Port Vulnerability - CVE-2019-6447
 As per their Google Play description:
-> ES File Explorer (File Manager) is a full-featured file (Images, Music, Movies, Documents, app) manager for both local and networked use! With over 500 million users worldwide, ES File Explorer (File Manager) helps manage your android phone and files efficiently and effectively and share files without data cost.
+> ES文件管理器(文件管理器)是一个功能齐全的文件(图像，音乐，电影，文件，应用程序)管理器，为本地和网络使用!ES File Explorer(文件管理器)在全球拥有超过5亿用户，帮助您高效地管理您的android手机和文件，并在无需数据成本的情况下共享文件。
 
-Everytime a user is launching the app, a HTTP server is started. This server is opening locally the port 59777:
+每次用户启动应用程序时，都会启动一个HTTP服务器。此服务器在本地打开端口59777:
 ```console
 angler:/ # netstat -ap | grep com.estrongs
 tcp6       0      0 :::59777                :::*                    LISTEN      5696/com.estrongs.android.pop
 ```
 
-On this port, an attacker can send a JSON payload to the target
+在这个端口上，攻击者可以向目标发送JSON格式payload
 ```console
 curl --header "Content-Type: application/json" --request POST --data '{"command":"[my_awesome_cmd]"}' http://192.168.0.8:59777
 ```
+这些命令允许攻击者**连接到同一个本地网络上的受害者**，获取大量有关受害者手机的有趣信息(设备信息、安装的应用程序、……)，**远程从受害者手机获取文件**，**远程启动受害者手机上的应用程序**。
 
-These commands allow an attacker **connected on the same local network to the victim**, to obtain a lot of juicy information (device info, app installed, ...) about the victim's phone, **remotely get a file** from the victim's phone and **remotely launch an app** on the victim's phone.
-
-## Affected Versions
-4.1.9.7.4 and below
+## 影响版本
+4.1.9.7.4 以下
 
 ## POC Features
-With the following Proof Of Concept (POC), you can:
-- List all the files in the sdcard in the victim device
-- List all the pictures in the victim device
-- List all the videos in the victim device
-- List all the audio files in the victim device
-- List all the apps installed in the victim device
-- List all the system apps installed in the victim device
-- List all the phone apps installed in the victim device
-- List all the apk files stored in the sdcard of the victim device
-- List all the apps installed in the victim device
-- Get device info of the victim device
-- Pull a file from the victim device
-- Launch an app of your choice
-- Get the icon of an app of your choice
+有了以下的(POC)，你可以:
+
+-列出受害者设备的sdcard中的所有文件
+-列出受害者设备上的所有图片
+-列出受害者设备中的所有视频
+-列出受害者设备中的所有音频文件
+-列出受害者设备上安装的所有应用程序
+-列出受害者设备上安装的所有系统应用程序
+-列出受害者设备上安装的所有手机应用程序
+-列出所有储存在受害者设备的sdcard中的apk文件
+-列出受害者设备上安装的所有应用程序
+-获取受害者设备的设备信息
+-从受害设备中提取文件
+-启动你选择的应用程序
+-获取您选择的应用程序的图标
 
 ## Demo
 [![Demo](http://img.youtube.com/vi/z6hfgnPNBRE/0.jpg)](http://www.youtube.com/watch?v=z6hfgnPNBRE)
+
+![](https://www.superbed.cn/pic/5c43e1575f3e509ed9437a06)
+
+![](https://www.superbed.cn/pic/5c43de555f3e509ed9436bb7)
 
 ## How To
 ```console
