@@ -83,20 +83,19 @@ $ python poc.py list
 ######################
 # Available Commands #
 ######################
-
-listFiles: List all the files
-listPics: List all the pictures
-listVideos: List all the videos
-listAudios: List all the audio files
-listApps: List all the apps installed
-listAppsSystem: List all the system apps
-listAppsPhone: List all the phone apps
-listAppsSdcard: List all the apk files in the sdcard
-listAppsAll: List all the apps installed (system apps included)
-getDeviceInfo: Get device info
-appPull: Pull an app from the device. Package name parameter is needed
-appLaunch: Launch an app. Package name parameter is needed
-getAppThumbnail: Get the icon of an app. Package name parameter is needed
+listFiles：列出所有文件
+listPics：列出所有图片
+listVideos：列出所有视频
+listAudios：列出所有音频文件
+listApps：列出所有已安装的应用
+listAppsSystem：列出所有系统应用
+listAppsPhone：列出所有手机应用
+listAppsSdcard：列出所有sdcard 
+listAppsAll：列出安装的所有应用程序（包括系统应用程序）
+getDeviceInfo：获取设备信息
+appPull：从设备中提取应用程序。需要包名称参数
+appLaunch：启动应用程序。需要包名称参数
+getAppThumbnail：获取应用程序的图标。包名称参数是必需的
 ```
 
 ## Contact
