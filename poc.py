@@ -1,3 +1,4 @@
+#coding:utf-8
 import json
 import optparse
 import requests
@@ -36,7 +37,8 @@ def get_file(addr, filepath):
 
 def execute_cmd(addr, cmd, package):
     if verbose:
-        print('[*] Executing command: ' + cmd + ' on ' + addr)
+        print("[*] 发现目标"+addr)
+        print('[*] 执行操作: ' + cmd + ' on ' + addr)
 
     session = requests.Session()
     headers = {"Content-Type": "application/json"}
@@ -134,8 +136,9 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == 'list':
         show_available_cmds()
     elif options.filepath != '' or options.cmd != '':
-        for ip in range(0, 255):
+        for ip in range(100, 255):
             addr = options.network + str(ip)
+            print('[*] Checking address: ' + addr)
             if verbose:
                 print('[*] Checking address: ' + addr)
 
