@@ -21,25 +21,41 @@ curl --header "Content-Type: application/json" --request POST --data '{"command"
 有了以下的(POC)，你可以:
 
 -列出受害者设备的sdcard中的所有文件
+
 -列出受害者设备上的所有图片
+
 -列出受害者设备中的所有视频
+
 -列出受害者设备中的所有音频文件
+
 -列出受害者设备上安装的所有应用程序
+
 -列出受害者设备上安装的所有系统应用程序
+
 -列出受害者设备上安装的所有手机应用程序
+
 -列出所有储存在受害者设备的sdcard中的apk文件
+
 -列出受害者设备上安装的所有应用程序
+
 -获取受害者设备的设备信息
+
 -从受害设备中提取文件
+
 -启动你选择的应用程序
+
 -获取您选择的应用程序的图标
+
 
 ## Demo
 [![Demo](http://img.youtube.com/vi/z6hfgnPNBRE/0.jpg)](http://www.youtube.com/watch?v=z6hfgnPNBRE)
 
+
 ![](https://www.superbed.cn/pic/5c43e1575f3e509ed9437a06)
 
+
 ![](https://www.superbed.cn/pic/5c43de555f3e509ed9436bb7)
+
 
 ## How To
 ```console
